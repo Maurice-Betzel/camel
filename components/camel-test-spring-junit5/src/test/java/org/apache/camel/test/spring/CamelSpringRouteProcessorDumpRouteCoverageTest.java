@@ -22,7 +22,6 @@ import org.apache.camel.management.JmxManagementStrategy;
 import org.apache.camel.test.junit5.TestSupport;
 import org.apache.camel.test.spring.junit5.EnableRouteCoverage;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -39,7 +38,6 @@ public class CamelSpringRouteProcessorDumpRouteCoverageTest extends CamelSpringP
 
     @Override
     @Test
-    @Disabled("@TODO: This test passes standalone but fail when run among other. Fix in a dedicated commit.")
     public void testJmx() {
         // JMX is enabled with route coverage
         assertEquals(JmxManagementStrategy.class, camelContext.getManagementStrategy().getClass());

@@ -274,9 +274,11 @@ public class CamelSpringTestContextLoader extends AbstractContextLoader {
                 System.clearProperty(JmxSystemPropertyKeys.DISABLED);
             }
         } else if (!testClass.isAnnotationPresent(EnableRouteCoverage.class)) {
-            // route coverage need JMX so do not disable it by default
             LOG.info("Disabling Camel JMX globally for tests by default.  Use the DisableJMX annotation to override the default setting.");
             System.setProperty(JmxSystemPropertyKeys.DISABLED, "true");
+        } else {
+            LOG.info("Enabling Camel JMX as DisableJmx annotation was NOT found but EnableRouteCoverage annotation was found.");
+            System.clearProperty(JmxSystemPropertyKeys.DISABLED);
         }
     }
 
