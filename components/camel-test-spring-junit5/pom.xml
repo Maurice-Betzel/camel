@@ -51,12 +51,12 @@
 		<!-- test dependencies -->
 		<dependency>
 			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-management-impl</artifactId>
+			<artifactId>camel-management</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.hamcrest</groupId>
-			<artifactId>java-hamcrest</artifactId>
+			<artifactId>hamcrest</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
