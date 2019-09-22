@@ -31,7 +31,7 @@ public class CamelSpringBootExecutionListener extends AbstractTestExecutionListe
 
     @Override
     public void prepareTestInstance(TestContext testContext) throws Exception {
-        LOG.info("@RunWith(CamelSpringBootRunner.class) preparing: {}", testContext.getTestClass());
+        LOG.info("CamelSpringBootExecutionListener preparing: {}", testContext.getTestClass());
 
         Class<?> testClass = testContext.getTestClass();
 
@@ -60,7 +60,7 @@ public class CamelSpringBootExecutionListener extends AbstractTestExecutionListe
 
     @Override
     public void beforeTestMethod(TestContext testContext) throws Exception {
-        LOG.info("@RunWith(CamelSpringBootRunner.class) before: {}.{}", testContext.getTestClass(), testContext.getTestMethod().getName());
+        LOG.info("CamelSpringBootExecutionListener before: {}.{}", testContext.getTestClass(), testContext.getTestMethod().getName());
 
         Class<?> testClass = testContext.getTestClass();
         String testName = testContext.getTestMethod().getName();
@@ -74,13 +74,13 @@ public class CamelSpringBootExecutionListener extends AbstractTestExecutionListe
         // route coverage need to know the test method
         CamelAnnotationsHandler.handleRouteCoverage(context, testClass, s -> testName);
 
-        LOG.info("Initialized CamelSpringBootRunner now ready to start CamelContext");
+        LOG.info("Initialized CamelSpringBootExecutionListener now ready to start CamelContext");
         CamelAnnotationsHandler.handleCamelContextStartup(context, testClass);
     }
 
     @Override
     public void afterTestMethod(TestContext testContext) throws Exception {
-        LOG.info("@RunWith(CamelSpringBootRunner.class) after: {}.{}", testContext.getTestClass(), testContext.getTestMethod().getName());
+        LOG.info("CamelSpringBootExecutionListener after: {}.{}", testContext.getTestClass(), testContext.getTestMethod().getName());
 
         Class<?> testClass = testContext.getTestClass();
         String testName = testContext.getTestMethod().getName();
